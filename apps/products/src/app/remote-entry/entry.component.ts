@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'store-products-entry',
-  template: `<store-nx-welcome></store-nx-welcome>`,
+  template: `<h1>Products Remote</h1>`,
 })
 export class RemoteEntryComponent {}

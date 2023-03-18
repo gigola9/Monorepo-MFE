@@ -10,9 +10,5 @@ export const appRoutes: Route[] = [
   {
     path: 'home',
     loadChildren: () => import('home/Module').then((m) => m.RemoteEntryModule),
-  },
-  {
-    path: '',
-    component: NxWelcomeComponent,
-  },
+  }
 ];
