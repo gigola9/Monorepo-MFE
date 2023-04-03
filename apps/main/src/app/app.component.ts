@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'store-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styles: [``]
 })
 export class AppComponent {
   title = 'cycle';
@@ -22,5 +22,9 @@ export class AppComponent {
     this.http.post('/api/addTodo', {}).subscribe(() => {
       this.fetch();
     });
+  }
+
+  onButtonClick() {
+    console.log(1);
   }
 }

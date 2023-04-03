@@ -4,6 +4,13 @@
   <li><a routerLink="products">Products</a></li>
 </ul>
 
+<store-ui-button 
+  size="big"
+  color="green"
+  [disabled]="false"
+  (buttonClick)="onButtonClick()"
+>Giorgi</store-ui-button>
+
 <button id="add-todo" (click)="addTodo()">Add Todo</button>
 
 <router-outlet></router-outlet>
