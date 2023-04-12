@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Item } from '@store/data';
+
 @Component({
   selector: 'store-products-entry',
   templateUrl: './entry.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemoteEntryComponent implements OnInit {
 
-  products: any[] = [];
+  products: Item[] = [];
 
   constructor(private http: HttpClient) {}
 

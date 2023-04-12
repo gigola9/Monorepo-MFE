@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { Item } from '@store/data';
 
 @Injectable()
 export class CartService {
 
-  items = [];
+  items: Item[] = [];
 
   addItemToCart(item) {
     if (item) {

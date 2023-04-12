@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { Item } from '@store/data';
 
 @Injectable()
 export class ProductsService {
   getProducts() {
-    const products = [
+    const products: Item[] = [
       {
         id: 1,
         name: 'mi electric scooter pro 2',
