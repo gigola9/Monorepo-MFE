@@ -31,3 +31,8 @@ a:hover {
 a:last-child {
   margin-right: 25px;
 }
+
+.active-link {
+  opacity: 1;
+  transition: .7s;
+}
