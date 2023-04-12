@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UiModule } from '@store/ui';
 
+import { HttpClientModule } from '@angular/common/http';
 import { CartRoutingModule } from './cart-routing.module';
 
 import * as fromCartContainer from "./containers";
@@ -12,7 +14,9 @@ import * as fromCartContainer from "./containers";
   ],
   imports: [
     CommonModule,
-    CartRoutingModule
+    CartRoutingModule,
+    HttpClientModule,
+    UiModule
   ]
 })
 export class CartModule { }

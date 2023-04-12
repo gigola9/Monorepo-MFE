@@ -1,10 +1,35 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'store-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.scss']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
 
+  products: any[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.http.get('/api/cart/getItems').subscribe((m: any[]) => {
+     this.products = m;
+    });
+  }
+
+  addQuantity(item) {
+    item.quantity++;
+  }
+
+  removeQuantity(item) {
+    item.quantity--;
+    if (item.quantity == 0) {
+      this.products = this.products.filter(m => m.quantity > 0);
+    }
+  }
 }

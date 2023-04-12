@@ -1,0 +1,53 @@
+.main {
+    margin: 20px 40px 20px 40px;
+  }
+
+  .items {
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border: 5px solid gray;
+      border-radius: 15px;
+      width: 250px;
+      height: 420px;
+      padding: 15px;
+      box-sizing: border-box;
+
+      .price-buy {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .description {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: rgb(94, 94, 94);
+    }
+
+    img {
+      width: 220px;
+      height: 250px;
+      object-fit: fill;
+    }
+  }

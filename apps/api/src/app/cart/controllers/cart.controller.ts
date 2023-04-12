@@ -19,35 +19,21 @@ import { CartService } from '../services/cart.service';
 export class CartController {
   constructor(private cartService: CartService) {}
 
-  // @Get(':id')
-  // getCostumer(
-  //   @Param('id', ParseIntPipe) id: number,
-  //   @Req() req: Request,
-  //   @Res() res: Response,
-  // ) {
-  //   const customer = this.customerService.findCustomer(id);
-  //   if (customer) {
-  //     res.send(customer);
-  //   } else {
-  //     res.status(400).send({ msg: 'Customer not found!' });
-  //   }
-  // }
+  @Post('addItem')
+  login(
+    @Body() body,
+    @Res() res: Response,
+  ) {
+    const itemAdded = this.cartService.addItemToCart(body.item);
+    if (itemAdded) {
+      res.status(200).send({ msg: 'success' });
+    } else {
+      res.status(400).send({ msg: 'error!' });
+    }
+  }
 
-  // @Get('/search/:id')
-  // searchCustomerById(@Param('id', ParseIntPipe) id: number) {
-  //   const customer = this.customerService.findCustomer(id);
-  //   if (customer) return customer;
-  //   else throw new HttpException('Customer Not Found!', HttpStatus.BAD_REQUEST);
-  // }
-
-  // @Get('')
-  // getAllCustomers() {
-  //   return this.customerService.getCustomers();
-  // }
-
-  // @Post('create')
-  // @UsePipes(ValidationPipe)
-  // createCustomer(@Body() createCustomerDto: CreateCustomerDto) {
-  //   this.customerService.createCustomer(createCustomerDto);
-  // }
+  @Get('getItems')
+  getItems() {
+    return this.cartService.getCartItems();
+  }
 }

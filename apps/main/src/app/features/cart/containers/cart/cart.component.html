@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div class="main">
+  <h2>Cart</h2>
+  <div class="items">
+    <div class="item" *ngFor="let item of products">
+      <div class="image-info">
+        <img [src]="item.imageUrl">
+        <div class="info">
+          <p class="name">{{ item.name }}</p>
+          <p class="description">{{ item.description }}</p>
+        </div>
+      </div>
+      <div class="details">
+        <p class="price"><span>{{ item.price * item.quantity }}</span>₾</p>
+        <p>
+          <span class="action" (click)="removeQuantity(item)">-</span>
+          <span class="qunatity">{{ item.quantity }}</span>
+          <span class="action" (click)="addQuantity(item)">+</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

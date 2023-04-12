@@ -1,7 +1,29 @@
-import { Component } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'store-products-entry',
-  template: `<h1>Products Remote</h1>`,
+  templateUrl: './entry.component.html',
+  styleUrls: ['./entry.component.scss']
 })
-export class RemoteEntryComponent {}
+export class RemoteEntryComponent implements OnInit {
+
+  products: any[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.http.get('/api/products/getProducts').subscribe((m: any) => {
+     this.products = m;
+    });
+  }
+
+  buy(item: any) {
+    this.http.post('/api/cart/addItem', { item }).subscribe((m: any) => {
+      console.log(m);
+     });
+  }
+}
